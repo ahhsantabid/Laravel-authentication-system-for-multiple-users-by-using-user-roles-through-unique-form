@@ -108,6 +108,8 @@ return [
 
     'faker_locale' => 'en_US',
 
+    'pagination' => 'bootstrap',
+
     /*
     |--------------------------------------------------------------------------
     | Encryption Key

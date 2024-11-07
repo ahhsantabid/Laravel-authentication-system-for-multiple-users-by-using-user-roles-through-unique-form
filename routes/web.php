@@ -7,6 +7,8 @@ use App\Http\Controllers\HQStoreController;
 use App\Http\Controllers\FactoryStoreController;
 use App\Http\Controllers\TrimsController;
 use App\Http\Controllers\AccountsController;
+use App\Http\Controllers\PurchaseController;
+
 use App\Http\Controllers\AdminUserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -30,7 +32,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 // HQ Store routes
 Route::middleware(['auth', 'role:HQ_store'])->group(function () {
-    Route::get('/hq-store/dashboard', [HQStoreController::class, 'index'])->name('hq.store.dashboard');
+    Route::get('/hq-store/dashboard', [HQStoreController::class, 'index'])->name('hq-store.dashboard');
 });
 
 // Factory Store routes
@@ -46,6 +48,11 @@ Route::middleware(['auth', 'role:trims'])->group(function () {
 // Accounts routes
 Route::middleware(['auth', 'role:accounts'])->group(function () {
     Route::get('/accounts/dashboard', [AccountsController::class, 'index'])->name('accounts.dashboard');
+});
+
+//purchases routes
+Route::middleware(['auth', 'role:purchage'])->group(function () {
+    Route::get('/purchage/dashboard', [PurchaseController::class, 'index'])->name('purchage.dashboard');
 });
 
 // Optional: Redirect root to home

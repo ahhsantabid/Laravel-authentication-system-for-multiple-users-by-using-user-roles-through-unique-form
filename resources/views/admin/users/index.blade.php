@@ -11,7 +11,7 @@
         </div>
     @endif
 
-    <table class="table table-bordered hovar-light">
+    <table class="table table-striped table-bordered  table-hover">
         <thead>
             <tr>
                 <th>Name</th>
@@ -38,4 +38,10 @@
             @endforeach
         </tbody>
     </table>
+
+    <div class="d-flex justify-content-right">
+        {{ $users->links('vendor.pagination.bootstrap-5') }}
+
+    </div>
+
 @endsection
