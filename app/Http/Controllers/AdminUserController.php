@@ -13,7 +13,7 @@ class AdminUserController extends Controller
     public function index()
     {
         // $users = User::with('role')->get(); // Fetch users with their roles
-        $users = User::paginate(5); // Adjust the number per page as needed
+        $users = User::paginate(8); // Adjust the number per page as needed
 
         return view('admin.users.index', compact('users'));
     }
@@ -31,7 +31,7 @@ class AdminUserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:3|confirmed',
             'role_id' => 'required|exists:roles,id', // Ensure role_id is required and exists in the roles table
         ]);
     
